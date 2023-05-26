@@ -10,7 +10,7 @@ import { RxCross1 } from "react-icons/rx";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const pathname = usePathname();
+  // const pathname = usePathname();
   
   return (
     <nav>
@@ -43,17 +43,17 @@ export default function Navbar() {
           </Link>
           <Link
             className="border-b border-[#1468a5] py-5"
-            href={"/products/males"}
+            href={"/products/men"}
             onClick={() => setOpen(false)}
           >
-            Males
+            Men
           </Link>
           <Link
             className="border-b border-[#1468a5] py-5"
-            href={"/products/females"}
+            href={"/products/women"}
             onClick={() => setOpen(false)}
           >
-            Females
+            Women
           </Link>
         </div>
       </div>
@@ -75,8 +75,8 @@ export default function Navbar() {
           <div className="hidden items-center gap-5 text-blue-500 md:flex lg:gap-10">
             <Link href={"/"}>Home</Link>
             <Link href={"/products"}>All Products</Link>
-            <Link href={"/products/males"}>Males</Link>
-            <Link href={"/products/females"}>Females</Link>
+            <Link href={"/products/men"}>Men</Link>
+            <Link href={"/products/women"}>Women</Link>
           </div>
           <div className="block md:hidden">
             <FiMenu

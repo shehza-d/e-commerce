@@ -1,27 +1,29 @@
 import { PortableTextBlock } from "sanity";
 
+export type TCategory =  "women" | "men" | "kids" | "other"
+
 export interface IProduct {
   _id: string;
-  _createdAt: string;
-  name: string;
+  _createdAt: Date;
+  productName: string;
   slug: string;
   productQuantity: number;
   productImage: string;
-  category: string;
+  category: TCategory;
   size: "XS" | "S" | "M" | "L" | "XL";
   tags:
-    | "Sweater"
-    | "Dress"
-    | "T Shirts"
-    | "Pants"
-    | "Jackets"
-    | "Coat"
-    | "Tracksuit"
-    | "Jeans"
-    | "Coat"
-    | "Glasses"
-    | "Cap"
-    | "Watch";
+    | "sweater"
+    | "dress"
+    | "t shirts"
+    | "pants"
+    | "jackets"
+    | "coat"
+    | "tracksuit"
+    | "jeans"
+    | "coat"
+    | "glasses"
+    | "cap"
+    | "watch";
   price: number;
   details: PortableTextBlock[];
   care: PortableTextBlock[];

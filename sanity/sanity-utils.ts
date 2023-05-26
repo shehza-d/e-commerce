@@ -1,41 +1,57 @@
 import { groq } from "next-sanity";
-import { IProduct } from "@/types";
+import { IProduct, TCategory } from "@/types";
 import { client } from "./lib/client";
 
 export const getProducts = async (): Promise<IProduct[]> => {
   return client.fetch(
     groq`*[_type == "product"]{
       _id,
-      _createdAt,
       productName,
       "slug": slug.current,
-	  productQuantity,
-      "productImage": image.asset->url,
-      "productImage": image,
+      "productImage": productImage.asset->url,
       category,
-	  size,
-	  tags,
-	  price,
-	  details,
-      care
+	    tags,
+	    price,
     }`
   );
 };
 
-// export const getProject=async(slug: string): Promise<Project> =>{
-//   return createClient(clientConfig).fetch(
-//     groq`*[_type == "project" && slug.current == $slug][0]{
-//       _id,
-//       _createdAt,
-//       name,
-//       "slug": slug.current,
-//       "image": image.asset->url,
-//       url,
-//       content
-//     }`,
-//     { slug }
-//   )
-// }
+export const getProduct = async (slug: string): Promise<IProduct> => {
+  return client.fetch(
+    groq`*[_type == "product" && slug.current == $slug][0]{
+      _id,
+      _createdAt,
+      productName,
+      "slug": slug.current,
+      productQuantity,
+      "productImage": productImage.asset->url,
+      category,
+      size,
+      tags,
+      price,
+      details,
+      care,
+    }`,
+    { slug }
+  );
+};
+
+export const getCategory = async (slug: TCategory): Promise<IProduct[]> => {
+  console.log("slugg",slug);
+  
+  return client.fetch(
+    groq`*[_type == "product" && category == $slug]{
+      _id,
+      productName,
+      "slug": slug.current,
+      "productImage": productImage.asset->url,
+      category,
+	    tags,
+	    price,
+    }`,
+    { slug }
+  );
+};
 
 // export async function getPages(): Promise<Page[]> {
 //   return createClient(clientConfig).fetch(

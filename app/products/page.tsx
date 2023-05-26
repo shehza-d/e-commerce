@@ -12,15 +12,24 @@ export default async function Page() {
       product page
       {products.map((item) => {
         return (
-          <Link className="text-blue-900"  href={`product/${item.slug}`} key={item._id}>
-          {/* <Image src={item.productImage} width={100} height={100} alt='image'/> */}
-          <p 
+          <Link
+            className="text-blue-900 shadow-md roun"
+            href={`product/${item.slug}`}
+            key={item._id}
           >
-            {item.productImage}
+            <div className="overflow-hidden">
+              <Image
+                className="transition-transform duration-300 hover:scale-110"
+                src={item.productImage}
+                width={100}
+                height={100}
+                alt="image"
+              />
+            </div>
 
-
-          </p>
-            {item.name}
+            <p>{item.productName}</p>
+            <p>{item.tags}</p>
+            <p>${item.price}</p>
           </Link>
         );
       })}

@@ -33,8 +33,8 @@ const product = {
       type: "string",
       options: {
         list: [
-          { title: "Female", value: "female" },
-          { title: "Male", value: "male" },
+          { title: "Men", value: "men" },
+          { title: "Women", value: "women" },
           { title: "Kids", value: "kids" },
           { title: "other", value: "other" },
         ],
