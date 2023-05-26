@@ -2,16 +2,27 @@
 import { IProduct } from "@/types";
 import { useContext, useState } from "react";
 import { GlobalContext } from "@/context";
+import toast from "react-hot-toast";
 
 export default function QuantityCounter({ data }: { data: IProduct }) {
-  const { state } = useContext(GlobalContext);
-  console.log("🚀 ~ file: QuantityCounter.tsx:8 ~ QuantityCounter ~ state:", state)
+  const { state, dispatch } = useContext(GlobalContext);
   
+
   const [quantity, setQuantity] = useState(1);
 
-  const addToCard=()=>{
-
-  }
+  const addToCard = () => {
+    dispatch({
+      type: "ADD_TO_CARD",
+      payload: state.cart.find((cartItem) => cartItem._id === data._id)
+        ? state.cart.map((cartItem) =>
+            cartItem._id === data._id
+              ? { ...cartItem, quantity: cartItem.quantity + quantity }
+              : cartItem
+          )
+        : [...state.cart, { ...data, quantity }],
+    });
+    toast.success("Product added to Cart");
+  };
   return (
     <div>
       Quantity :
@@ -29,7 +40,10 @@ export default function QuantityCounter({ data }: { data: IProduct }) {
         +
       </button>
       <br />
-      <button onClick={addToCard} className="bg-slate-900 px-4 py-2 text-gray-100 ">
+      <button
+        onClick={addToCard}
+        className="bg-slate-900 px-4 py-2 text-gray-100 "
+      >
         Add to Cart
       </button>
     </div>
