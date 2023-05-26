@@ -37,8 +37,6 @@ export const getProduct = async (slug: string): Promise<IProduct> => {
 };
 
 export const getCategory = async (slug: TCategory): Promise<IProduct[]> => {
-  console.log("slugg",slug);
-  
   return client.fetch(
     groq`*[_type == "product" && category == $slug]{
       _id,

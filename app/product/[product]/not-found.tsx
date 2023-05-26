@@ -1,9 +1,5 @@
-export default function NotFound() {
+import { NotFoundPage } from "@/components";
 
-  return (
-    <>
-      <h2>404 Product Not Found</h2>
-      <p>Could not find requested resource </p>
-    </>
-  );
+export default function NotFound() {
+  return <NotFoundPage />;
 }
