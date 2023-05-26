@@ -1,6 +1,8 @@
 import "./globals.css";
 import { Outfit } from "next/font/google";
 import { Navbar, Footer } from "@/components";
+import ContextProvider from "../context";
+
 
 const font = Outfit({
   subsets: ["latin"],
@@ -21,9 +23,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="max-w-4xl mx-auto" style={font.style}>
+      <body className="max-w-4xl min-h-screen grid grid-rows-[auto,1fr,auto] mx-auto" style={font.style}>
         <Navbar />
+        <ContextProvider>
         {children}
+        </ContextProvider>
         <Footer />
       </body>
     </html>

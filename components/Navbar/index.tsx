@@ -55,6 +55,13 @@ export default function Navbar() {
           >
             Women
           </Link>
+          <Link
+            className="border-b border-[#1468a5] py-5"
+            href={"/cart"}
+            onClick={() => setOpen(false)}
+          >
+            C
+          </Link>
         </div>
       </div>
       <div className="bg-main sticky top-0 z-30 w-full backdrop-blur-3xl print:hidden">
@@ -68,15 +75,16 @@ export default function Navbar() {
               height={25}
             />
           </Link>
-          {/* <h1 className="font-extrabold text-green-500 xl:text-2xl">
+          <h1 className="font-extrabold text-blue-500 xl:text-2xl">
             E Commerce
-          </h1> */}
-          <input className="text-violet-700 md:block hidden" type="search" placeholder="dfdfd"/>
+          </h1>
+          {/* <input className="text-violet-700 md:block hidden" type="search" placeholder="dfdfd"/> */}
           <div className="hidden items-center gap-5 text-blue-500 md:flex lg:gap-10">
             <Link href={"/"}>Home</Link>
             <Link href={"/products"}>All Products</Link>
             <Link href={"/products/men"}>Men</Link>
             <Link href={"/products/women"}>Women</Link>
+            <Link href={"/cart"}>C</Link>
           </div>
           <div className="block md:hidden">
             <FiMenu
