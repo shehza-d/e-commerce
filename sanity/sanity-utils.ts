@@ -2,7 +2,7 @@ import { groq } from "next-sanity";
 import { IProduct } from "@/types";
 import { client } from "./lib/client";
 
-export async function getProducts(): Promise<IProduct[]> {
+export const getProducts = async (): Promise<IProduct[]> => {
   return client.fetch(
     groq`*[_type == "product"]{
       _id,
@@ -20,9 +20,9 @@ export async function getProducts(): Promise<IProduct[]> {
       care
     }`
   );
-}
+};
 
-// export async function getProject(slug: string): Promise<Project> {
+// export const getProject=async(slug: string): Promise<Project> =>{
 //   return createClient(clientConfig).fetch(
 //     groq`*[_type == "project" && slug.current == $slug][0]{
 //       _id,
