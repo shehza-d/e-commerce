@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <div>
+    <footer>
       <div className="">
         <Image
           className="w-[100px] sm:w-[120] md:w-[150px]"
@@ -22,6 +22,6 @@ export default function Footer() {
           <Link href="https://www.linkedin.com/in/shehzadd/">O</Link>
         </div>
       </div>
-    </div>
+    </footer>
   );
 }

@@ -1,5 +1,5 @@
 
-export default function page() {
+export default function Orders() {
   return (
 	<div>page</div>
   )

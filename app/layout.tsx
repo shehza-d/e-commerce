@@ -1,14 +1,13 @@
 import "./globals.css";
 import { Outfit } from "next/font/google";
 import { Navbar, Footer } from "@/components";
-import ContextProvider from "../context";
-
+import ContextProvider from "@/context";
+import  { Toaster } from 'react-hot-toast';
 
 const font = Outfit({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   display: "swap",
-  // variable: '--font-outfit', // optional for tailwind
 });
 
 export const metadata = {
@@ -23,11 +22,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="max-w-4xl min-h-screen grid grid-rows-[auto,1fr,auto] mx-auto" style={font.style}>
+      <body
+        className="mx-auto grid min-h-screen max-w-4xl grid-rows-[auto,1fr,auto]"
+        style={font.style}
+      >
         <Navbar />
-        <ContextProvider>
-        {children}
-        </ContextProvider>
+        <ContextProvider>{children}</ContextProvider>
+        <Toaster />
         <Footer />
       </body>
     </html>

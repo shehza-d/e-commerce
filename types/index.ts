@@ -1,6 +1,6 @@
 import { PortableTextBlock } from "sanity";
 
-export type TCategory =  "women" | "men" | "kids" | "other"
+export type TCategory = "women" | "men" | "kids" | "other";
 
 export interface IProduct {
   _id: string;
@@ -27,4 +27,21 @@ export interface IProduct {
   price: number;
   details: PortableTextBlock[];
   care: PortableTextBlock[];
+}
+
+interface ICart extends IProduct {
+  quantity: number;
+}
+
+export interface IState {
+  darkTheme: boolean;
+  isLogin: boolean | null;
+  testing: string;
+  baseURL: string;
+  cart: ICart[];
+}
+
+export interface IAction {
+  type: "ADD_TO_CARD" | "TOGGLE_THEME";
+  payload?: any;
 }

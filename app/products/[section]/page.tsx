@@ -5,7 +5,7 @@ import { IProduct, TCategory } from "@/types";
 import { notFound } from "next/navigation";
 import { ProductCard } from "@/components";
 
-export default async function page({
+export default async function Page({
   params,
 }: {
   params: { section: TCategory };

@@ -6,7 +6,8 @@
 - [ ] TypeScript
 - [ ] Stripe
 - [ ] Sanity
-<!-- - [ ] Next
+- [ ] Context API
+<!-- 
 - [ ] Next
 - [ ] Next -->
 

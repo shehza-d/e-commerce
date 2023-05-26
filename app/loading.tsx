@@ -202,7 +202,7 @@ const LoadingSvg = (
   </svg>
 );
 
-export default function page() {
+export default function Loading() {
   return (
     <div className="flex h-[95vh] w-full flex-col items-center justify-center">
       <div>{LoadingSvg}</div>
