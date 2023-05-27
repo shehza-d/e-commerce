@@ -2,11 +2,14 @@
 
 ## Hackathon project by Sir Zia
 
-- [ ] Next JS
-- [ ] TypeScript
-- [ ] Stripe
-- [ ] Sanity
-- [ ] Context API
+### Stack Used
+
+- [x] Next JS
+- [x] TypeScript
+- [x] Stripe
+- [x] Sanity
+- [x] Context API
+
 <!-- 
 - [ ] Next
 - [ ] Next -->
