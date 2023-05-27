@@ -2,17 +2,18 @@
 
 ## Hackathon project by Sir Zia
 
-### Stack Used
+### Tect Stack Used
 
-- [x] Next JS
-- [x] TypeScript
-- [x] Stripe
-- [x] Sanity
-- [x] Context API
-
-<!-- 
-- [ ] Next
-- [ ] Next -->
+- [x] ***Next JS (13.4+ with App dir)***
+- [x] *TypeScript*
+- [x] **Stripe Payments**
+- [x] ***Sanity CMS***
+- [x] ***Context API***
+- [x] ***Vercel Postgres*** SQL
+- [x] ***Drizzle ORM***
+- [x] ***Tailwind CSS***
+<!-- - [x] Vercel Postgres SQL
+- [x] Vercel Postgres SQL -->
 
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
@@ -28,3 +29,14 @@ yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+After **Proceed to Payment** on Stripe page when testing interactively,
+- Use a card number, such as 
+
+```
+4242 4242 4242 4242
+```
+
+- Use a valid future date, such as `12/34`.
+- Use any three-digit CVC `567`
+- Use any value you like for other form fields.
