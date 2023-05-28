@@ -14,7 +14,7 @@ export const metadata = {
   title: "E Commerce by Shehzad",
   description: "E Commerce by Shehzad Hackathon Project Panaverse",
 };
-
+ 
 export default function RootLayout({
   children,
 }: {
@@ -23,7 +23,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className="mx-auto grid min-h-screen max-w-4xl grid-rows-[auto,1fr,auto]"
+        className="grid min-h-screen grid-rows-[auto,1fr,auto]"
+        // max-w-4xl px-4 md:px-8 mx-auto
         style={font.style}
       >
         <Navbar />

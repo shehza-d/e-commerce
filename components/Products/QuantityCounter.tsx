@@ -6,11 +6,23 @@ import toast from "react-hot-toast";
 
 export default function QuantityCounter({ data }: { data: IProduct }) {
   const { state, dispatch } = useContext(GlobalContext);
-  
 
   const [quantity, setQuantity] = useState(1);
 
   const addToCard = () => {
+    const cartData = {
+      _id: data._id,
+      _createdAt: data._createdAt,
+      productName: data.productName,
+      slug: data.slug,
+      productQuantity: data.productQuantity,
+      productImage: data.productImage,
+      category: data.category,
+      size: data.size,
+      tags: data.tags,
+      price: data.price,
+    };
+
     dispatch({
       type: "ADD_TO_CARD",
       payload: state.cart.find((cartItem) => cartItem._id === data._id)
@@ -19,10 +31,11 @@ export default function QuantityCounter({ data }: { data: IProduct }) {
               ? { ...cartItem, quantity: cartItem.quantity + quantity }
               : cartItem
           )
-        : [...state.cart, { ...data, quantity }],
+        : [...state.cart, { ...cartData, quantity }],
     });
     toast.success("Product added to Cart");
   };
+
   return (
     <div>
       Quantity :

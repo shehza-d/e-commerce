@@ -9,13 +9,13 @@ export default async function Page() {
   console.log("🚀 ~ file: page.tsx:7 ~ Page ~ products:", products);
 
   return (
-    <div>
+    <main className="max-w-4xl px-4 md:px-8 mx-auto w-full">
       product page
       <div className="grid grid-cols-4">
         {products.map((item) => (
           <ProductCard key={item._id} data={item} />
         ))}
       </div>
-    </div>
+    </main>
   );
 }
