@@ -4,10 +4,11 @@ import { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "@/context";
 import Image from "next/image";
 import toast from "react-hot-toast";
+import { getStripe } from "@/lib/getStripe";
 
 export default function Cart() {
   const { state, dispatch } = useContext(GlobalContext);
-  // const [quantity, setQuantity] = useState(state.);
+  const [loading, setLoading] = useState(false);
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalProductQuantity, setTotalProductQuantity] = useState(0);
 
@@ -50,7 +51,7 @@ export default function Cart() {
       ),
     });
   };
-  
+
   const removeItem = (id: string) => {
     dispatch({
       type: "ADD_TO_CARD",
@@ -59,10 +60,28 @@ export default function Cart() {
     toast.success("Product Removed from Cart");
   };
 
-  console.log(
-    "🚀 ~ file: QuantityCounter.tsx:8 ~ QuantityCounter ~ state:",
-    state.cart
-  );
+  const handlePayment = async () => {
+    try {
+      setLoading(true);
+      const stripe = await getStripe();
+      const res = await fetch("/api/v1/payments", {
+        method: "POST",
+        body: JSON.stringify(state.cart),
+      });
+      const data = await res.json();
+      if (!res.ok) console.log('responsce !ok');
+      
+      console.log("🚀 ~ file: page.tsx:73 ~ handleCheckout ~ data:", data.session.id);
+      stripe.redirectToCheckout({ sessionId:  data.session.id });
+    } catch (err: any) {
+      console.log("err", err);
+      toast.error(`${err.message}`);
+    } finally {
+      setLoading(false);
+    }
+    // toast.loading("Redirecting...");
+  };
+
   return (
     <main>
       {" "}
@@ -113,7 +132,7 @@ export default function Cart() {
           <p>Quantity {totalProductQuantity}</p>
 
           <p>Product Sub Total ${totalPrice}</p>
-          <button>Process to Checkout</button>
+          <button onClick={handlePayment}>Process to Checkout</button>
         </div>
       </div>
     </main>

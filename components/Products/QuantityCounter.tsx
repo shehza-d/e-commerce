@@ -11,6 +11,13 @@ export default function QuantityCounter({ data }: { data: IProduct }) {
   const [quantity, setQuantity] = useState(1);
 
   const addToCard = () => {
+	console.log('data1',data);
+	
+	delete data['details']; 
+	delete data['care']; 
+	
+	console.log('data2',data);
+
     dispatch({
       type: "ADD_TO_CARD",
       payload: state.cart.find((cartItem) => cartItem._id === data._id)

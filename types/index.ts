@@ -29,7 +29,7 @@ export interface IProduct {
   care: PortableTextBlock[];
 }
 
-interface ICart extends IProduct {
+export interface ICart extends IProduct {
   quantity: number;
 }
 

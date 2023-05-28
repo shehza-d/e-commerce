@@ -2,39 +2,39 @@
 
 ## Hackathon project by Sir Zia
 
-### Tect Stack Used
+#### Tect Stack Used
 
-- [x] ***Next JS (13.4+ with App dir)***
-- [x] *TypeScript*
-- [x] **Stripe Payments**
-- [x] ***Sanity CMS***
-- [x] ***Context API***
-- [x] ***Vercel Postgres*** SQL
-- [x] ***Drizzle ORM***
-- [x] ***Tailwind CSS***
+- [x] **_Next JS (13.4+ with App dir)_**
+- [x] **_TypeScript_**
+- [x] **_Stripe Payments_**
+- [x] **_Sanity CMS_**
+- [x] **_Context API_**
+- [x] **_Vercel Postgres SQL_**
+- [x] **_Drizzle ORM_**
+- [x] **_Tailwind CSS_**
 <!-- - [x] Vercel Postgres SQL
 - [x] Vercel Postgres SQL -->
-
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ### Getting Started
 
-First, run the development server:
+First, install the dependencies and run the development server:
 
 ```bash
-npm run dev
+npm i && npm run dev
 # or
-yarn dev
+yarn install & yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 After **Proceed to Payment** on Stripe page when testing interactively,
-- Use a card number, such as 
+
+- Use a card number, such as
 
 ```
-4242 4242 4242 4242
+ 5555 5555 5555 4444
 ```
 
 - Use a valid future date, such as `12/34`.

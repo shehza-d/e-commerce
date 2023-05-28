@@ -12,6 +12,7 @@
     "@portabletext/react": "^3.0.0",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.11.2",
+    "@stripe/stripe-js": "^1.53.0",
     "drizzle-orm": "^0.26.1",
     "next": "13.4.3",
     "next-sanity": "^4.3.3",
@@ -19,7 +20,8 @@
     "react-dom": "18.2.0",
     "react-hot-toast": "^2.4.1",
     "react-icons": "^4.8.0",
-    "sanity": "^3.11.2"
+    "sanity": "^3.11.2",
+    "stripe": "^12.7.0"
   },
   "devDependencies": {
     "@types/node": "20.2.3",
