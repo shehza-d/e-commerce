@@ -27,7 +27,7 @@ npm i && npm run dev
 yarn install & yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result. Add products from `/products` page and Proceed to pay on `/cart` page.
 
 After **Proceed to Payment** on Stripe page when testing interactively,
 

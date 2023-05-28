@@ -2,22 +2,9 @@ import { type NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
 import { ICart } from "@/types";
 
-// const paymentIntent = await stripe.paymentIntents.create({
-//   amount: 500,
-//   currency: 'gbp',
-//   payment_method: 'pm_card_visa',
-// });
-
-export async function GET() {
-  return NextResponse.json({
-    status: "OK",
-    message: "API running Good by SHEHZAD.",
-  });
-}
-
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!
-  , {apiVersion: "2022-11-15",}
-  );
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+  apiVersion: "2022-11-15",
+});
 
 export const POST = async (req: NextRequest, res: NextResponse) => {
   // console.log("next url", req.nextUrl);
@@ -25,9 +12,9 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
 
   try {
     const body = await req.json();
-    console.log("bodyyyyyyyy", body);
+    // console.log("bodyyyyyyyy", body);
     // Create Checkout Sessions from body params.
-    const cartDataForCheckOut = body?.map((item: ICart) => {
+    const cartDataForCheckOut = body?.cartItems?.map((item: ICart) => {
       return {
         price_data: {
           currency: "usd",
@@ -35,7 +22,7 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
             name: item.productName,
             images: [item.productImage],
           },
-          unit_amount: item.price * 100,
+          unit_amount: item.price * 100, //*100 because unit amounts has to be in cents
         },
         adjustable_quantity: {
           enabled: true,
@@ -43,10 +30,10 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
         },
         quantity: item.quantity,
       };
-    })
-    console.log('cartDataForCheckOut',cartDataForCheckOut);
-    
-    const session = await stripe.checkout.sessions.create({ 
+    });
+    console.log("cartDataForCheckOut", cartDataForCheckOut);
+
+    const session = await stripe.checkout.sessions.create({
       submit_type: "pay",
       mode: "payment",
       payment_method_types: ["card"],
@@ -58,7 +45,7 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
       line_items: cartDataForCheckOut,
       success_url: `${req.nextUrl.origin}/payments/successful`,
       cancel_url: `${req.nextUrl.origin}/payments/canceled`,
-    })
+    });
 
     // res.redirect(303, session.url);
     return NextResponse.json({ session: session }, { status: 200 });
@@ -67,16 +54,3 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
     // res.status(err.statusCode || 500).json(err.message);
   }
 };
-
-// const session = await stripe.checkout.sessions.create({
-//   line_items: [
-//     {
-//       // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-//       price: "{{PRICE_ID}}",
-//       quantity: 1,
-//     },
-//   ],
-//   mode: "payment",
-//   success_url: `${req.headers.origin}/?success=true`,
-//   cancel_url: `${req.headers.origin}/?canceled=true`,
-// });

@@ -66,13 +66,13 @@ export default function Cart() {
       const stripe = await getStripe();
       const res = await fetch("/api/v1/payments", {
         method: "POST",
-        body: JSON.stringify(state.cart),
+        body: JSON.stringify({ cartItems: state.cart }),
       });
       const data = await res.json();
-      if (!res.ok) console.log('responsce !ok');
-      
-      console.log("🚀 ~ file: page.tsx:73 ~ handleCheckout ~ data:", data.session.id);
-      stripe.redirectToCheckout({ sessionId:  data.session.id });
+      if (!res.ok) console.log("responsce !ok");
+
+      console.log("🚀 ~ file: page.tsx:73 ~ handleCheckout ~ data:", data);
+      stripe.redirectToCheckout({ sessionId: data.session.id });
     } catch (err: any) {
       console.log("err", err);
       toast.error(`${err.message}`);
@@ -132,7 +132,15 @@ export default function Cart() {
           <p>Quantity {totalProductQuantity}</p>
 
           <p>Product Sub Total ${totalPrice}</p>
-          <button onClick={handlePayment}>Process to Checkout</button>
+          <button
+            className="disabled:cursor-not-allowed"
+            disabled={!state.cart.length}
+            title={!state.cart.length?"Add Products First":''}
+            onClick={handlePayment}
+          >
+            {/* {state.cart.length ? "Proceed to Checkout"  } */}
+            Proceed to Checkout
+          </button>
         </div>
       </div>
     </main>
