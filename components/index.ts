@@ -8,7 +8,7 @@ import ProductsWeHave from "./Main/ProductsWeHave";
 import Newsletter from "./Main/Newsletter";
 import Promotions from "./Main/Promotions";
 import Unique from "./Main/Unique";
-// import Hero from "./Main/Hero";
+import BlurDiv from "./Utils/BlurDiv";
 // import Hero from "./Main/Hero";
 
 export {
@@ -22,4 +22,5 @@ export {
   Promotions,
   Unique,
   NotFoundPage,
+  BlurDiv,
 };

@@ -31,7 +31,7 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
         quantity: item.quantity,
       };
     });
-    console.log("cartDataForCheckOut", cartDataForCheckOut);
+    // console.log("cartDataForCheckOut", cartDataForCheckOut);
 
     const session = await stripe.checkout.sessions.create({
       submit_type: "pay",

@@ -2,7 +2,7 @@
 import logo from "@/public/assets/logoipsum.svg";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+// import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { FiMenu, RxCross1, BiCartAlt } from "@/lib/icons";
 
@@ -12,7 +12,7 @@ export default function Navbar() {
 
   return (
     <nav className="sticky top-0 mt-3 w-full bg-red-500">
-      <div className="mx-auto max-w-4xl bg-white">
+      <div className="mx-auto max-w-5xl bg-white">
         <div
           className={`bdr desktop-nav-bar fixed left-0 top-0 z-40 ${
             !open && "hidden"
@@ -67,7 +67,7 @@ export default function Navbar() {
                 height={25}
               />
             </Link>
-            <h1 className="justify-self-center font-extrabold text-blue-500 xl:text-2xl">
+            <h1 className="justify-self-center font-extrabold text-primary text-2xl">
               Classy Closet
             </h1>
             {/* <input className="text-violet-700 md:block hidden" type="search" placeholder="dfdfd"/> */}
