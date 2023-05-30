@@ -14,7 +14,7 @@ export const metadata = {
   title: "E Commerce by Shehzad",
   description: "E Commerce by Shehzad Hackathon Project Panaverse",
   icons: {
-    icon: { url: "/favicon.png", type: "image/png" }
+    icon: { url: "/assets/logoipsum.svg", type: "image/png" }
   },
 };
  

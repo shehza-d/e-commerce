@@ -6,7 +6,7 @@ import { footerData } from "@/data";
 
 export default function Footer() {
   return (
-    <footer className="bg-secondary">
+    <footer className="bg-secondary mt-6">
       <div className="mx-auto flex max-w-5xl flex-col px-4 md:h-72 md:flex-row md:px-8 lg:px-0">
         <div className="flex h-[16rem] flex-col justify-evenly md:h-auto md:w-[50%]">
           <Image

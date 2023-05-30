@@ -1,8 +1,9 @@
 "use client";
-import { IProduct } from "@/types";
+import type { IProduct } from "@/types";
 import { useContext, useState } from "react";
 import { GlobalContext } from "@/context";
 import toast from "react-hot-toast";
+import { CartLogo, MinusIcons, PlusIcons } from "@/lib/icons";
 
 export default function QuantityCounter({ data }: { data: IProduct }) {
   const { state, dispatch } = useContext(GlobalContext);
@@ -38,26 +39,26 @@ export default function QuantityCounter({ data }: { data: IProduct }) {
 
   return (
     <div>
-      Quantity :
-      <button
-        onClick={() => setQuantity(quantity > 1 ? quantity - 1 : quantity)}
-        className="h-8 w-8 rounded-full border border-black p-1 font-black"
-      >
-        -
-      </button>
-      {quantity}
-      <button
-        onClick={() => setQuantity(quantity + 1)}
-        className="h-8 w-8 rounded-full border border-black p-1 font-black"
-      >
-        +
-      </button>
-      <br />
-      <button
-        onClick={addToCard}
-        className="bg-slate-900 px-4 py-2 text-gray-100 "
-      >
-        Add to Cart
+      <div className="flex items-center">
+        <h5 className="inline">Quantity :</h5>
+        <button
+          onClick={() => setQuantity(quantity > 1 ? quantity - 1 : quantity)}
+          className="h-8 w-8 p-1 text-2xl font-black"
+        >
+          <MinusIcons />
+        </button>
+        {quantity}
+        <button
+          onClick={() => setQuantity(quantity + 1)}
+          className="h-8 w-8 p-1 text-2xl font-black"
+        >
+          <PlusIcons />
+        </button>
+      </div>
+
+      <button onClick={addToCard} className="btn flex items-center px-4 py-2">
+        <CartLogo className="pr-2 text-3xl" />
+        <span>Add to Cart</span>
       </button>
     </div>
   );

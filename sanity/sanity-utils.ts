@@ -1,5 +1,5 @@
 import { groq } from "next-sanity";
-import { IProduct, TCategory } from "@/types";
+import type { IProduct, TCategory } from "@/types";
 import { client } from "./lib/client";
 
 export const getProducts = async (): Promise<IProduct[]> => {
@@ -51,16 +51,6 @@ export const getCategory = async (slug: TCategory): Promise<IProduct[]> => {
   );
 };
 
-// export async function getPages(): Promise<Page[]> {
-//   return createClient(clientConfig).fetch(
-//     groq`*[_type == "page"]{
-//       _id,
-//       _createdAt,
-//       title,
-//       "slug": slug.current
-//     }`
-//   )
-// }
 
 // export async function getPage(slug: string): Promise<Page> {
 //   return createClient(clientConfig).fetch(
