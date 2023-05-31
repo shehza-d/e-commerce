@@ -11,6 +11,7 @@ import Promotions from "./Main/Promotions";
 import Unique from "./Main/Unique";
 import BlurDiv from "./Utils/BlurDiv";
 import SizeUL from "./Products/SizeUL";
+import Loader from "./Loader/index";
 // import Hero from "./Main/Hero";
 
 export {
@@ -18,6 +19,7 @@ export {
   Footer,
   ProductCard,
   QuantityCounter,
+  Loader,
   Hero,
   ProductsWeHave,
   Newsletter,

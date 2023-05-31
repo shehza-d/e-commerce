@@ -34,7 +34,11 @@ export default async function Page({
           {/* <p>productQuantity: {data.productQuantity}</p> */}
           {/* <p>size: {data.size}</p> */}
           <p>category: {data.category}</p>
-          <p>createdAt: {`${data._createdAt}`}</p>
+          <p>
+            Created At:
+            {`${new Date(data._createdAt).toLocaleDateString()}`}
+          </p>
+
           <QuantityCounter data={data} />
           <p className="text-2xl text-secondary">
             price: {data.price}
