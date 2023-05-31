@@ -2,15 +2,9 @@
 
 ## Panaverse Hackathon project 1 by Sir Zia
 
-<br/>
-
-
 ### Time Spent on this Project :
 
 <img  src="https://wakatime.com/badge/user/2b9bc0da-3bf8-4082-b333-bc011089fbbb/project/d97e75e0-ac66-4347-86a4-2bbf12d947e2.svg" alt="wakatime"></img>
-</p>
-
-<br/>
 
 ### Tect Stack Used :
 
