@@ -7,22 +7,24 @@ import {
 } from "@/lib/icons";
 import Link from "next/link";
 // import { BlurDiv } from "@/components";
-import dotPng from "@/public/assets/dot.png";
+// import dotPng from "@/public/assets/dot.png";
 
 export default function Hero() {
   return (
     <header className="bg-slate-100">
-      <div className="relative mx-auto flex min-h-screen max-w-5xl flex-col flex-wrap items-center justify-center gap-8 px-4 md:flex-row md:gap-0 md:px-8">
-        <div className="w-[400px]">
-          <h1 className="text-5xl font-extrabold text-secondary">
+      <div className="relative z-20 mx-auto flex min-h-screen max-w-5xl flex-col flex-wrap items-center justify-center gap-8 px-4 py-8 md:flex-row md:gap-0 md:px-8 md:py-0">
+        <div className="blur-div absolute right-40 top-56 z-10 h-36 w-36 bg-primary blur-3xl"></div>
+
+        <div className="relative z-20 w-[400px]">
+          <h1 className="text-4xl font-extrabold text-secondary md:text-6xl">
             All Your Style <span className="text-primary">Are Here</span>
           </h1>
-          <p className="text-slate-500">
+          <p className="my-6 text-lg  text-slate-500">
             This e commerce website is a platform where you can order or
             purchase <span className="text-primary">Clothing</span> items and
             you can also find other items.
           </p>
-          <Link href="/products" className="btn px-12 py-2">
+          <Link href="/products" className="btn px-12 py-4">
             Buy Now
           </Link>
         </div>
@@ -33,7 +35,7 @@ export default function Hero() {
           height={309}
           alt="pink hoodie for hero"
         /> */}
-        <div className="w-[300px]">
+        <div className="relative z-20 w-[300px]">
           <Image
             className="rotate-12"
             src={heroHoodie}
@@ -42,18 +44,14 @@ export default function Hero() {
             alt="pink hoodie for hero"
           />
         </div>
-
         {/* <Image
           src={dotPng}
           width={479}
           height={309}
           alt="pink hoodie for hero"
-        />
- */}
+        />*/}
 
-        <div className="blur-div absolute right-40 top-56 h-36 w-36 bg-primary blur-3xl"></div>
-
-        <div className="circles  w-52">
+        <div className="circles relative z-20 flex w-52 flex-col gap-4">
           <div className="flex items-center gap-4">
             <div className="rounded-full bg-white p-5 text-3xl text-black">
               <BsCalendar3 />

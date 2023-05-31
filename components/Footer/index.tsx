@@ -6,22 +6,28 @@ import { footerData } from "@/data";
 
 export default function Footer() {
   return (
-    <footer className="bg-secondary mt-6">
+    <footer className="mt-6 bg-secondary">
       <div className="mx-auto flex max-w-5xl flex-col px-4 md:h-72 md:flex-row md:px-8 lg:px-0">
         <div className="flex h-[16rem] flex-col justify-evenly md:h-auto md:w-[50%]">
-          <Image
-            className="w-[100px] sm:w-[120] md:w-[150px]"
-            src={logo}
-            alt="logo"
-            width={140}
-            height={50}
-          />
+          <div className="flex items-center">
+            <Image
+              className="h-12 w-12"
+              src={logo}
+              alt="logo"
+              width={50}
+              height={50}
+            />
+            <h2 className="justify-self-center pl-2 text-2xl font-extrabold text-primary">
+              Classy Closet
+            </h2>
+          </div>
+
           <p className="text-justify font-light text-slate-400 md:pr-4">
             Looking for an e-commerce website? We offer a turn key e-commerce
             website with the latest technology. Get your online store today!
             Small, artisan label that offers a thoughtfully curated collection
             of high quality everyday essentials made. high quality everyday
-            essentials made.bdr3
+            essentials.
           </p>
           <div className="links flex gap-4">
             <Link
@@ -56,7 +62,7 @@ export default function Footer() {
               </h3>
               {item.links.map((links) => (
                 <li
-                  className="text-slate-400 hover:text-primary cursor-pointer"
+                  className="cursor-pointer text-slate-400 hover:text-primary"
                   key={links.id}
                 >
                   {links.title}

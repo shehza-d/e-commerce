@@ -1,6 +1,18 @@
 this file will be removed
 remove access after repo public
 
+E commerce Web Store built on MERN Stack with JWT Auth, ContextAPI Stripe Payments methods
+file upload on firebase storage bucket.
+- [x] **_Next JS (13.4+ with App dir)_**
+- [x] **_TypeScript_**
+- [x] **_Stripe Payments_**
+- [x] **_Sanity CMS_**
+- [x] **_Context API_**
+- [x] **_Vercel Postgres SQL_**
+- [x] **_Drizzle ORM_**
+- [x] **_Tailwind CSS_**
+
+
 https://www.beardbrand.com/
 
 https://www.mvmt.com/
@@ -12,3 +24,21 @@ https://www.pinterest.com/pin/299911656449041852/
 https://ui8.net/ // ui
 
 https://youtu.be/OcTPaUfay5I //sanity
+
+
+I am Shehzad Iqbal, a motivated and dedicated individual with a
+technical background in Node.js and REST API development.
+With over a year of experience, I have worked on several open-source projects,
+including the official website of the Governor of Sindh,
+where I implemented a form submission feature using Next.js and a REST API
+connected to a PostgreSQL database. I have also contributed to an
+E-commerce web store built on the MERN stack, integrating JWT authentication,
+Context API, and Stripe payments methods. Additionally,
+I have developed REST APIs using Node.js and implemented file uploads to Firebase storage buckets.
+My proficiency in full-stack web development, RESTful architecture, and API design,
+combined with my problem-solving skills, make me a strong fit for the LFX Open Mainframe project.
+I am eager to collaborate with the team and contribute to the automation and management of CVEs.
+
+Thank you for considering my application. I have attached my resume for your review,
+and I would welcome the opportunity to discuss further how my qualifications align with
+the project's requirements.
