@@ -71,7 +71,7 @@ export default function Cart() {
       const data = await res.json();
       if (!res.ok) console.log("responsce !ok");
 
-      console.log("🚀 ~ file: page.tsx:73 ~ handleCheckout ~ data:", data);
+      // console.log("🚀 ~ file: page.tsx:73 ~ handleCheckout ~ data:", data);
       stripe.redirectToCheckout({ sessionId: data.session.id });
     } catch (err: any) {
       console.log("err", err);

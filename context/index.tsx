@@ -1,12 +1,12 @@
 "use client";
 import { createContext, useReducer, type ReactNode } from "react";
 import { reducer } from "./reducer";
-import { IProduct, IState, IAction } from "@/types";
+import type { IProduct, IState, IAction } from "@/types";
 
 interface IGlobalContext {
   state: IState;
   // dispatch: React.Dispatch<IAction> | null;
-  dispatch:any;
+  dispatch: any;
 }
 
 const initialState: IState = {

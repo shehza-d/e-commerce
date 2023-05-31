@@ -1,10 +1,11 @@
 import { type NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
-import { ICart } from "@/types";
+import type { ICart } from "@/types";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: "2022-11-15",
 });
+console.log('STRIPE_SECRET_KEY',process.env.STRIPE_SECRET_KEY!);
 
 export const POST = async (req: NextRequest, res: NextResponse) => {
   // console.log("next url", req.nextUrl);
@@ -12,7 +13,7 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
 
   try {
     const body = await req.json();
-    // console.log("bodyyyyyyyy", body);
+    // console.log("body", body);
     // Create Checkout Sessions from body params.
     const cartDataForCheckOut = body?.cartItems?.map((item: ICart) => {
       return {
@@ -31,7 +32,7 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
         quantity: item.quantity,
       };
     });
-    console.log("cartDataForCheckOut", cartDataForCheckOut);
+    // console.log("cartDataForCheckOut", cartDataForCheckOut);
 
     const session = await stripe.checkout.sessions.create({
       submit_type: "pay",

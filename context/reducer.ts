@@ -1,4 +1,4 @@
-import { IState, IAction } from "@/types";
+import type  { IState, IAction } from "@/types";
 import type { Reducer } from "react";
 
 export const reducer: Reducer<IState, IAction> = (state, action) => {

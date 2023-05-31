@@ -1,27 +1,34 @@
-import { IProduct } from "@/types";
+import type { IProduct } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function ProductCard({ data }: { data: IProduct }) {
   return (
     <Link
-      className="roun border border-green-500  text-blue-900 shadow-md"
+      className="group rounded-lg border p-4 transition-transform duration-1000 hover:shadow-xl"
       href={`product/${data.slug}`}
       key={data._id}
     >
-      <div className="overflow-hidden">
+      <div className="mx-auto h-48 w-48 overflow-hidden rounded-lg">
         <Image
-          className="transition-transform duration-300 hover:scale-110"
+          className="transition-transform duration-300 group-hover:scale-110"
           src={data.productImage}
-          width={100}
-          height={100}
+          width={300}
+          height={300}
           alt="image"
         />
       </div>
 
-      <p>{data.productName}</p>
-      <p>{data.tags}</p>
-      <p>${data.price}</p>
+      <p className="my-2 text-2xl font-bold capitalize text-slate-600 group-hover:text-secondary">
+        {data.productName}
+      </p>
+      <p className="text- font-semibold capitalize text-slate-500">
+        {data.tags}
+      </p>
+      <p className="text-2xl text-secondary">
+        {data.price}
+        <span className="text-sm text-primary">$</span>
+      </p>
     </Link>
   );
 }

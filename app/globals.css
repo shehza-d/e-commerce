@@ -38,6 +38,9 @@
   background-color: var(--primary-color);
   border-radius: 10px;
 }
+.btn:hover{
+  background-color: #dc9064;
+}
 .bdr {
   border: 2px solid red;
 }

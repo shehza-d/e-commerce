@@ -7,8 +7,8 @@ export default function Home() {
   return (
     <main className="">
     <Hero/>
-    <Hero/>
-    <Hero/>
+    {/* <Hero/> */}
+    {/* <Hero/> */}
     </main>
   )
 }
