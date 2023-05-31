@@ -38,11 +38,11 @@
   background-color: var(--primary-color);
   border-radius: 10px;
 }
-.list > ul {
-  list-style: inside;
-}
 .btn:hover {
   background-color: #dc9064;
+}
+.list > ul {
+  list-style: inside;
 }
 .bdr {
   border: 2px solid red;

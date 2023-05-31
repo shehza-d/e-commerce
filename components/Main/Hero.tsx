@@ -15,7 +15,7 @@ export default function Hero() {
       <div className="relative z-20 mx-auto flex min-h-screen max-w-5xl flex-col flex-wrap items-center justify-center gap-8 px-4 py-8 md:flex-row md:gap-0 md:px-8 md:py-0">
         <div className="blur-div absolute right-40 top-56 z-10 h-36 w-36 bg-primary blur-3xl"></div>
 
-        <div className="relative z-20 w-[400px]">
+        <div className="relative z-20 md:w-[400px]">
           <h1 className="text-4xl font-extrabold text-secondary md:text-6xl">
             All Your Style <span className="text-primary">Are Here</span>
           </h1>

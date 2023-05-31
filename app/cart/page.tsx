@@ -1,12 +1,13 @@
 "use client";
-
+import Link from "next/link";
+import Image from "next/image";
 import { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "@/context";
-import Image from "next/image";
-import toast from "react-hot-toast";
 import { getStripe } from "@/lib/getStripe";
-import { CartLogo } from "@/lib/icons";
-import Link from "next/link";
+import toast from "react-hot-toast";
+import { CartLogo, MinusIcons, PlusIcons } from "@/lib/icons";
+import deleteIcon from "@/public/assets/DeleteIcon.svg";
+import { Loader } from "@/components";
 
 export default function Cart() {
   const { state, dispatch } = useContext(GlobalContext);
@@ -97,64 +98,89 @@ export default function Cart() {
           </Link>
         </div>
       ) : (
-        <div className="main grid grid-cols-3">
-          <div className="cart col-span-2">
-            {state.cart.map((item) => (
-              <div key={item._id}>
-                <Image
-                  width={300}
-                  height={300}
-                  src={item.productImage}
-                  alt={item.productName}
-                />
-                <p>Name {item.productName}</p>
-                <button
-                  className="bg-slate-800 text-white"
-                  onClick={() => removeItem(item._id)}
-                >
-                  remove
-                </button>
-                <p>category {item.category}</p>
-                <p>tag {item.tags}</p>
-                <p>single item price {item.price}</p>
+        <div className="main grid grid-cols-1 md:grid-cols-3">
 
-                <p>
-                  Quantity :
-                  <button
-                    onClick={() => decreaseQuantity(item._id)}
-                    className="h-8 w-8 rounded-full border border-black p-1 font-black"
-                  >
-                    -
+          <div className="cart col-span-2 flex flex-col gap-6">
+            {state.cart.map((item) => (
+              <div
+                className="group flex h-52 items-stretch justify-around rounded-lg border p-4 hover:shadow-xl"
+                key={item._id}
+              >
+                <div className="mx-auto h-48 w-48 overflow-hidden rounded-lg">
+                  <Image
+                    className="transition-transform duration-300 group-hover:scale-110"
+                    width={300}
+                    height={300}
+                    src={item.productImage}
+                    alt={item.productName}
+                  />
+                </div>
+
+                <div>
+                  <p>Name {item.productName}</p>
+                  <p>category {item.category}</p>
+                  <p>tag {item.tags}</p>
+                  <p>single item price {item.price}</p>
+                  <p>Total item price {item.price * item.quantity}</p>
+                </div>
+
+                <div className="flex flex-col items-center justify-between">
+                  <button className="" onClick={() => removeItem(item._id)}>
+                    <Image
+                      src={deleteIcon}
+                      width={28}
+                      height={28}
+                      alt="delete icon"
+                    />
                   </button>
-                  {item.quantity}
-                  <button
-                    onClick={() => increaseQuantity(item._id)}
-                    className="h-8 w-8 rounded-full border border-black p-1 font-black"
-                  >
-                    +
-                  </button>
-                </p>
-                <p>Total item price {item.price * item.quantity}</p>
+                  <div className="flex items-center">
+                    <button
+                      onClick={() => decreaseQuantity(item._id)}
+                      className="h-8 w-8 p-1 text-2xl font-black"
+                    >
+                      <MinusIcons />
+                    </button>
+                    {item.quantity}
+                    <button
+                      onClick={() => increaseQuantity(item._id)}
+                      className="h-8 w-8 p-1 text-2xl font-black"
+                    >
+                      <PlusIcons />
+                    </button>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
-          <div className="order col-span-1">
-            <br />
-            <br />
-            <br />
-            <h2>Order Summary</h2>
-            <div className="flex flex-col"></div>
-            <p>Quantity {totalProductQuantity}</p>
+          <div className="order order-first md:order-none md:sticky top-36 col-span-1 mx-auto flex h-fit w-[75%] flex-col gap-4">
+            <h2 className="text-center text-xl font-bold text-secondary">
+              Order Summary
+            </h2>
+            {/* <div className="flex flex-col"></div> */}
+            <p className="flex justify-between">
+              <span>Quantity</span>
+              <span>{totalProductQuantity}</span>
+            </p>
 
-            <p>Product Sub Total ${totalPrice}</p>
+            <p className="flex justify-between">
+              <span>Product Sub Total</span>
+              <span>{totalPrice}</span>
+            </p>
+
             <button
-              className="btn disabled:cursor-not-allowed "
-              disabled={!state.cart.length}
+              className={`btn flex h-10 items-center justify-evenly py-2 ${
+                loading ? "bg-[#c2825d]" : ""
+              } disabled:cursor-not-allowed`}
+              disabled={loading}
               title={!state.cart.length ? "Add Products First" : ""}
               onClick={handlePayment}
             >
               {/* {state.cart.length ? "Proceed to Checkout"  } */}
-              Proceed to Checkout
+              <div className="w-4">
+                {loading ? <Loader width="w-4" height="h-4" /> : ""}
+              </div>
+              <span className="text-center">Proceed to Payment</span>
+              <div className="w-4"></div>
             </button>
           </div>
         </div>
