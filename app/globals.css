@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 :root {
-  --primary-color: #f39761; 
+  --primary-color: #f39761;
   /* --accent-low-op: #30f71190; */
   --secondary-color: #292647;
-  --acc-navy: #E38C5D;
+  --acc-navy: #e38c5d;
   /*
   --acc-lightNavy: #112240;
   --acc-lightestNavy: #233554;
@@ -33,12 +33,15 @@
     rgb(var(--background-start-rgb));
 } */
 
-.btn{
+.btn {
   color: white;
   background-color: var(--primary-color);
   border-radius: 10px;
 }
-.btn:hover{
+.list > ul {
+  list-style: inside;
+}
+.btn:hover {
   background-color: #dc9064;
 }
 .bdr {

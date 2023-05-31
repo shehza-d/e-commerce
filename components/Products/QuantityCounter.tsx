@@ -56,7 +56,7 @@ export default function QuantityCounter({ data }: { data: IProduct }) {
         </button>
       </div>
 
-      <button onClick={addToCard} className="btn flex items-center px-4 py-2">
+      <button onClick={addToCard} className="btn mt-6 flex items-center px-4 py-2">
         <CartLogo className="pr-2 text-3xl" />
         <span>Add to Cart</span>
       </button>
