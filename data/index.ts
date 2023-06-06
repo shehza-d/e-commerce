@@ -1,3 +1,10 @@
+export const navLinks = [
+  { title: "home", link: "/", id: "1" },
+  { title: "all products", link: "/products", id: "2" },
+  { title: "men", link: "/products/men", id: "3" },
+  { title: "women", link: "/products/women", id: "4" },
+];
+
 export const footerData = [
   {
     id: "1",

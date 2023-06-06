@@ -6,32 +6,25 @@ import { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "@/context";
 import { FiMenu, RxCross1, CartLogo } from "@/lib/icons";
 import { usePathname } from "next/navigation";
-
-const navLinks = [
-  { title: "home", link: "/", id: "1" },
-  { title: "all products", link: "/products", id: "2" },
-  { title: "men", link: "/products/men", id: "3" },
-  { title: "women", link: "/products/women", id: "4" },
-];
+import { navLinks } from "@/data";
 
 export default function Navbar() {
   const { state, dispatch } = useContext(GlobalContext);
-  const [totalProductQuantity, setTotalProductQuantity] = useState(0);
+  // const [totalProductQuantity, setTotalProductQuantity] = useState(0);
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
-  console.log("🚀 ~ file: index.tsx:15 ~ Navbar ~ pathname:", pathname);
 
-  useEffect(() => {
-    let totalQuantity = 0;
-    state.cart.map((item) => {
-      totalQuantity += item.quantity;
-    });
-    // console.log(
-    //   "🚀 ~ file: index.tsx:19 ~ getTotalQuantity ~ totalQuantity:",
-    //   totalQuantity
-    // );
-    setTotalProductQuantity(totalQuantity);
-  }, [state]);
+  // useEffect(() => {
+  //   let totalQuantity = 0;
+  //   state.cart.map((item) => {
+  //     totalQuantity += item.quantity;
+  //   });
+  //   // console.log(
+  //   //   "🚀 ~ file: index.tsx:19 ~ getTotalQuantity ~ totalQuantity:",
+  //   //   totalQuantity
+  //   // );
+  //   setTotalProductQuantity(totalQuantity);
+  // }, [state]);
   // console.log("🚀 ~ file: index.tsx:27 ~ Navbar ~ state:", state.cart);
 
   return (
@@ -82,9 +75,11 @@ export default function Navbar() {
             <div className="hidden items-center gap-5 text-secondary md:flex lg:gap-10">
               {navLinks.map((item) => (
                 <Link
-                  className={`px-4 py-2 capitalize ${
-                    pathname === item.link ? "text-primary" : ""
-                  }`}
+                  className={`S_Underline relative inline-block px-4 py-2 capitalize ${
+                    pathname === item.link
+                      ? "text-primary after:bg-primary"
+                      : "after:bg-secondary"
+                  } hover:after:left-3 hover:after:w-[72%]`}
                   href={item.link}
                   key={item.id}
                 >

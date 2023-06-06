@@ -1,7 +1,7 @@
 // style="margin: auto; background: none; display: block; shape-rendering: auto;"
 const LoadingSvg = (
   <svg
-    className="h-48 w-48 fill-blue-700 md:h-64 md:w-64"
+    className="h-48 w-48 fill-primary md:h-64 md:w-64"
     width={262}
     height={262}
     viewBox="0 0 100 100"

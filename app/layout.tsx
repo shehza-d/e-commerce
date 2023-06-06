@@ -2,7 +2,7 @@ import "./globals.css";
 import { Outfit } from "next/font/google";
 import { Navbar, Footer } from "@/components";
 import ContextProvider from "@/context";
-import  { Toaster } from 'react-hot-toast';
+import { Toaster } from "react-hot-toast";
 
 const font = Outfit({
   subsets: ["latin"],
@@ -14,10 +14,10 @@ export const metadata = {
   title: "E Commerce by Shehzad",
   description: "E Commerce by Shehzad Hackathon Project Panaverse",
   icons: {
-    icon: { url: "/assets/logoipsum.svg", type: "image/png" }
+    icon: { url: "/assets/logoipsum.svg", type: "image/png" },
   },
 };
- 
+
 export default function RootLayout({
   children,
 }: {
