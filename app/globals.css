@@ -44,6 +44,10 @@
 .list > ul {
   list-style: inside;
 }
+.S_Underline {
+  @apply after:absolute after:bottom-2 after:left-[2px] after:h-0.5 after:w-0 after:transition-all after:duration-[400ms] after:content-[''];
+}
+
 .bdr {
   border: 2px solid red;
 }

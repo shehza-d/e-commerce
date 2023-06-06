@@ -25,6 +25,7 @@ https://ui8.net/ // ui
 
 https://youtu.be/OcTPaUfay5I //sanity
 
+fix all loaders 
 
 I am Shehzad Iqbal, a motivated and dedicated individual with a
 technical background in Node.js and REST API development.

@@ -6,7 +6,7 @@
 
 <img  src="https://wakatime.com/badge/user/2b9bc0da-3bf8-4082-b333-bc011089fbbb/project/d97e75e0-ac66-4347-86a4-2bbf12d947e2.svg" alt="wakatime"></img>
 
-### Tect Stack Used :
+### Tech Stack Used :
 
 - [x] **_Next JS (13.4+ with App dir)_**
 - [x] **_TypeScript_**
