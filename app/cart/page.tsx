@@ -72,7 +72,7 @@ export default function Cart() {
         body: JSON.stringify({ cartItems: state.cart }),
       });
       const data = await res.json();
-      if (!res.ok) console.log("responsce !ok");
+      if (!res.ok) throw new Error("some error");
 
       // console.log("🚀 ~ file: page.tsx:73 ~ handleCheckout ~ data:", data);
       stripe.redirectToCheckout({ sessionId: data.session.id });
@@ -99,7 +99,6 @@ export default function Cart() {
         </div>
       ) : (
         <div className="main grid grid-cols-1 md:grid-cols-3">
-
           <div className="cart col-span-2 flex flex-col gap-6">
             {state.cart.map((item) => (
               <div
@@ -152,7 +151,7 @@ export default function Cart() {
               </div>
             ))}
           </div>
-          <div className="order order-first md:order-none md:sticky top-36 col-span-1 mx-auto flex h-fit w-[75%] flex-col gap-4">
+          <div className="order top-36 order-first col-span-1 mx-auto flex h-fit w-[75%] flex-col gap-4 md:sticky md:order-none">
             <h2 className="text-center text-xl font-bold text-secondary">
               Order Summary
             </h2>

@@ -16,7 +16,7 @@ export default async function Page({
 
   return (
     <main className="mx-auto max-w-5xl px-4 md:px-8 lg:p-0">
-      <div className="my-8 flex">
+      <div className="my-8 flex flex-col md:flex-row">
         <Image
           className="rounded-lg "
           width={800}
@@ -24,7 +24,7 @@ export default async function Page({
           src={data.productImage}
           alt={data.productName}
         />
-        <div className="flex flex-col gap-6 p-10 capitalize">
+        <div className="flex flex-col gap-2 md:gap-6 pt-6 capitalize md:p-10">
           <h2 className="text-4xl font-bold text-secondary">
             {data.productName}
           </h2>
@@ -47,7 +47,7 @@ export default async function Page({
         </div>
       </div>
       <div className="before:contents-['Overview'] relative flex h-24 items-center  border-b-2 border-slate-500">
-        <div className="absolute text-8xl font-extrabold text-slate-200">
+        <div className="absolute  text-6xl font-extrabold text-slate-200 md:text-8xl">
           Overview
         </div>
         <h3 className="relative z-10 text-2xl font-semibold">
@@ -55,13 +55,13 @@ export default async function Page({
         </h3>
       </div>
 
-      <div className="my-6 grid grid-cols-3">
+      <div className="my-6 grid grid-cols-1 md:grid-cols-3">
         <h5 className="col-span-1 text-3xl text-slate-500">Product Details</h5>
         <div className="col-span-2 text-justify">
           <PortableText value={data.details} />
         </div>
       </div>
-      <div className="my-6 grid grid-cols-3">
+      <div className="my-6 grid grid-cols-1 md:grid-cols-3">
         <h5 className="col-span-1 text-3xl text-slate-500">Product Care</h5>
         <div className="list col-span-2 text-justify">
           <PortableText value={data.care} />

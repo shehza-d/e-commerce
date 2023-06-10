@@ -21,6 +21,9 @@ https://www.display.care/
 
 https://www.pinterest.com/pin/299911656449041852/
 
+success and failed page
+make UI respnsive 
+
 https://ui8.net/ // ui
 
 https://youtu.be/OcTPaUfay5I //sanity
