@@ -105,22 +105,24 @@ export default function Cart() {
                 className="group flex h-52 items-stretch justify-around rounded-lg border p-4 hover:shadow-xl"
                 key={item._id}
               >
-                <div className="mx-auto h-48 w-48 overflow-hidden rounded-lg">
-                  <Image
-                    className="transition-transform duration-300 group-hover:scale-110"
-                    width={300}
-                    height={300}
-                    src={item.productImage}
-                    alt={item.productName}
-                  />
-                </div>
-
                 <div>
-                  <p>Name {item.productName}</p>
-                  <p>category {item.category}</p>
-                  <p>tag {item.tags}</p>
-                  <p>single item price {item.price}</p>
-                  <p>Total item price {item.price * item.quantity}</p>
+                  <div className="mx-auto h-48 w-48 overflow-hidden rounded-lg">
+                    <Image
+                      className="transition-transform duration-300 group-hover:scale-110"
+                      width={300}
+                      height={300}
+                      src={item.productImage}
+                      alt={item.productName}
+                    />
+                  </div>
+
+                  <div>
+                    <p>{item.productName}</p>
+                    <p>category {item.category}</p>
+                    <p>tag {item.tags}</p>
+                    <p>single item price {item.price}</p>
+                    <p>Total item price {item.price * item.quantity}</p>
+                  </div>
                 </div>
 
                 <div className="flex flex-col items-center justify-between">
@@ -151,7 +153,7 @@ export default function Cart() {
               </div>
             ))}
           </div>
-          <div className="order top-36 order-first col-span-1 mx-auto flex h-fit w-[75%] flex-col gap-4 md:sticky md:order-none">
+          <div className="order top-36 order-first col-span-1 mx-auto mb-7 mt-3 flex h-fit w-[90%] flex-col gap-4 md:sticky md:order-none md:mt-0 md:w-[75%]">
             <h2 className="text-center text-xl font-bold text-secondary">
               Order Summary
             </h2>
